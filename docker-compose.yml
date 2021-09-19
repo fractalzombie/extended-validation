@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  php-cli:
+    build:
+      context: devops/docker/local/php-cli/8.0
+    volumes:
+      - code:/var/www/html:rw
+    expose:
+      - 9000
+    entrypoint: bash /entrypoint.sh
+
+volumes:
+  code:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: "./"

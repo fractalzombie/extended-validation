@@ -1,0 +1,22 @@
+services:
+  FRZB\Component\ExtendedValidation\CountRepositoryInterface: '@FRZB\Component\ExtendedValidation\CountRepository'
+
+  FRZB\Component\ExtendedValidation\CountRepository:
+    arguments:
+      - '@doctrine.orm.entity_manager'
+
+  FRZB\Component\ExtendedValidation\Constraint\UniqueValidator:
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@FRZB\Component\ExtendedValidation\CountRepositoryInterface'
+      - '@annotations.reader'
+      - '@request_stack'
+    tags:
+      - { name: 'validator.constraint_validator' }
+
+  FRZB\Component\ExtendedValidation\Constraint\ExistValidator:
+    arguments:
+      - '@FRZB\Component\ExtendedValidation\CountRepositoryInterface'
+      - '@annotations.reader'
+    tags:
+      - { name: 'validator.constraint_validator' }

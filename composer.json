@@ -1,0 +1,72 @@
+{
+  "name": "frzb/extended-validation",
+  "type": "library",
+  "description": "Provides extended validations for symfony validation component",
+  "keywords": [],
+  "homepage": "https://github.com/fractalzombie",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mykhailo Shtanko",
+      "email": "fractalzombie@gmail.com",
+      "homepage": "https://github.com/fractalzombie",
+      "role": "Software Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.0",
+    "symfony/validator": "^5.3",
+    "doctrine/orm": "^2.9",
+  },
+  "require-dev": {
+    "symfony/doctrine-bridge": "^5.3",
+    "symfony/console": "^5.3",
+    "symfony/deprecation-contracts": "^2.1",
+    "symfony/polyfill-php80": "^1.16",
+    "doctrine/annotations": "^1.13",
+    "symfony/http-kernel": "5.3",
+    "symfony/framework-bundle": "^5.3",
+    "symfony/dependency-injection": "^5.3",
+    "symfony/expression-language": "^5.3",
+    "symfony/config": "^5.3",
+    "symfony/error-handler": "^5.3",
+    "symfony/http-foundation": "^5.3",
+    "symfony/cache": "^5.3",
+    "symfony/service-contracts": "^1.1|^2",
+    "symfony/stopwatch": "^5.3",
+    "psr/log": "^1|^2|^3",
+    "friendsofphp/php-cs-fixer": "^3.1.0",
+    "vimeo/psalm": "4.x-dev",
+    "roave/security-advisories": "dev-latest",
+    "sempro/phpunit-pretty-print": "^1.4",
+    "phpunit/phpunit": "9.5",
+    "symfony/dotenv": "^5.3",
+    "symfony/uid": "^5.3"
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FRZB\\Component\\ExtendedValidation\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --colors=always --verbose --configuration phpunit.xml.dist --log-junit var/tests/.phpunit.output.xml"
+    ],
+    "test-coverage": [
+      "vendor/bin/phpunit --colors=always --verbose --configuration phpunit.xml.dist --log-junit var/tests/.phpunit.output.xml --coverage-html var/tests/coverage --coverage-clover var/tests/coverage/coverage.xml"
+    ]
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "5.3.*"
+    }
+  }
+}
